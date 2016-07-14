@@ -47,9 +47,12 @@ class LinkForIP extends \Piwik\Plugin
     public function addUrlIp(&$visitor, $details)
     {
         $this->loadSettings();
-        $url = str_replace('{ip}', $visitor['visitIp'], self::$urlbase);
 
-        $visitor['visitIp'] = '<a href="'.$url.'" target="_blank">'.$visitor['visitIp'].'</a>';
+        if (self::$urlbase) {
+            $url = str_replace('{ip}', $visitor['visitIp'], self::$urlbase);
+            $visitor['visitIp'] = '<a href="'.$url.'" target="_blank">'.$visitor['visitIp'].'</a>';
+            file_put_contents('eu.log', time().PHP_EOL, FILE_APPEND);
+        }
     }
 
     /**
@@ -59,7 +62,7 @@ class LinkForIP extends \Piwik\Plugin
      */
     private function loadSettings()
     {
-        if(!self::$urlbase) {
+        if (!self::$urlbase) {
             $Settings = new Settings('LinkForIP');
             self::$urlbase = $Settings->urlSetting->getValue();
         }
