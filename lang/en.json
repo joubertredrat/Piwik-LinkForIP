@@ -1,0 +1,14 @@
+{
+    "LinkForIP": {
+        "PluginDescription": "A Piwik plugin for you put link to see information about IP visitor.",
+	"LinkForIP": "LinkForIP",
+        "SettingsDescription": "Settings for LinkForIP, this plugin is very easy to configurate.",
+	"UrlLabel": "Url",
+	"UrlDescription": "Url for view IP information",
+	"UrlHelp": "Enter a url with '{ip}' joker for create link on visitor list. Example: ",
+        "UrlErrUrlInvalid": "Invalid url, you need to add valid url address with '{ip}' joker",
+        "UrlErrNoJoker": "Invalid url, you need to add '{ip}' joker on url",
+        "ErrMsgWrongValue": "Wrong input"
+    }
+}
+
